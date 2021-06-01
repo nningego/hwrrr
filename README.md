@@ -1,0 +1,1 @@
+Inspired by https://futurama.fandom.com/wiki/Lrrr
