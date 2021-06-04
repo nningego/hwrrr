@@ -37,6 +37,8 @@ Inspired by https://futurama.fandom.com/wiki/Lrrr
 
 `npm i`
 
+`npm test`
+
 `npm start`
 
 Open: `http://localhost:3001/` in browser

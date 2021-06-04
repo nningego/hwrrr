@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface Thing {
+    id: string,
+    title: string,
+    body: string
+}
+
+
+function App(props: any) {
+    const {getThings} = props;
+    const [things, setThings] = useState<Thing[]>([]);
+
+    useEffect(() => {
+        getThings().then((data: Thing[]) => setThings(data))
+    }, [])
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                {things?.map(thing => <li key={thing.id} aria-label={thing.title}>{thing.body}</li>)}
+            </header>
+        </div>
+    );
 }
 
 export default App;
